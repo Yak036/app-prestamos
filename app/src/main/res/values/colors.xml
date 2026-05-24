@@ -2,4 +2,17 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="app_background">#F6F7FB</color>
+    <color name="app_primary">#2563EB</color>
+    <color name="app_primary_dark">#1E40AF</color>
+    <color name="app_primary_light">#DBEAFE</color>
+    <color name="app_accent">#10B981</color>
+    <color name="app_text_primary">#111827</color>
+    <color name="app_text_secondary">#6B7280</color>
+    <color name="app_input_hint">#4B5563</color>
+    <color name="app_input_background">#F9FAFB</color>
+    <color name="app_card">#FFFFFFFF</color>
+    <color name="app_card_stroke">#E5E7EB</color>
+    <color name="app_card_accent_background">#EFF6FF</color>
+    <color name="app_calendar_muted">#9CA3AF</color>
 </resources>

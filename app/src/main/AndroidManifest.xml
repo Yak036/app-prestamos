@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Appprestamos">
         <activity
+            android:name=".CreateLoanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateClientActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ClientListActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

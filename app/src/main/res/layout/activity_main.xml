@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_background"
     android:fillViewport="true"
     tools:context=".MainActivity">
 
@@ -17,7 +19,8 @@
             android:id="@+id/dashboardTitleText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dashboard"
+            android:text="Prestamos"
+            android:textColor="@color/app_text_primary"
             android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
             android:textStyle="bold" />
 
@@ -27,27 +30,102 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Cargando cobros de hoy..."
-            android:textAppearance="@style/TextAppearance.Material3.BodyLarge" />
+            android:textColor="@color/app_primary_dark"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/monthTitleText"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/openClientsButton"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:text="Clientes"
+                app:backgroundTint="@color/app_primary"
+                app:cornerRadius="16dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/openLoansButton"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:text="Prestamos"
+                app:backgroundTint="@color/app_primary"
+                app:cornerRadius="16dp" />
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
-            android:textStyle="bold"
-            tools:text="Mayo 2026" />
+            app:cardBackgroundColor="@color/app_card"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="1dp"
+            app:strokeColor="@color/app_card_stroke"
+            app:strokeWidth="1dp">
 
-        <TextView
-            android:id="@+id/calendarText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="#F3F4F6"
-            android:fontFamily="monospace"
-            android:padding="16dp"
-            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
-            tools:text="L  M  X  J  V  S  D\n            1  2  3\n 4  5  6  7  8  9 10" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/previousMonthButton"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:gravity="center"
+                        android:text="‹"
+                        android:textColor="@color/app_primary"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/monthTitleText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                        android:textColor="@color/app_text_primary"
+                        android:textStyle="bold"
+                        tools:text="Mayo 2026" />
+
+                    <TextView
+                        android:id="@+id/nextMonthButton"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:gravity="center"
+                        android:text="›"
+                        android:textColor="@color/app_primary"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <GridLayout
+                    android:id="@+id/calendarGrid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:columnCount="7"
+                    android:orientation="horizontal" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:id="@+id/collectionsTitleText"
@@ -56,6 +134,7 @@
             android:layout_marginTop="24dp"
             android:text="Cobros de hoy"
             android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            android:textColor="@color/app_text_primary"
             android:textStyle="bold" />
 
         <LinearLayout

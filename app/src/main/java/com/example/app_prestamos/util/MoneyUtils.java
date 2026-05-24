@@ -16,6 +16,18 @@ public final class MoneyUtils {
         return Math.round(principalAmountCents * (profitPercent / 100.0));
     }
 
+    public static long parseToCents(String amountText) {
+        if (amountText == null || amountText.trim().isEmpty()) {
+            throw new IllegalArgumentException("El monto es obligatorio.");
+        }
+
+        double amount = Double.parseDouble(amountText.trim().replace(",", "."));
+        if (amount <= 0) {
+            throw new IllegalArgumentException("El monto debe ser mayor que cero.");
+        }
+        return Math.round(amount * 100);
+    }
+
     public static String formatCents(long amountCents) {
         return formatCents(amountCents, CurrencyType.USD);
     }

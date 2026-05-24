@@ -20,6 +20,15 @@ public final class DateUtils {
         return calendar.getTimeInMillis() / MILLIS_PER_DAY;
     }
 
+    public static long epochDayFor(int year, int zeroBasedMonth, int dayOfMonth) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, zeroBasedMonth);
+        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        clearTime(calendar);
+        return calendar.getTimeInMillis() / MILLIS_PER_DAY;
+    }
+
     public static long addFrequency(long startEpochDay, String paymentFrequency, int periods) {
         Calendar calendar = epochDayToCalendar(startEpochDay);
         if ("MONTHLY".equals(paymentFrequency)) {
@@ -46,33 +55,9 @@ public final class DateUtils {
         return capitalize(month) + " " + calendar.get(Calendar.YEAR);
     }
 
-    public static String buildCurrentMonthCalendarText() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.DAY_OF_MONTH, 1);
-        clearTime(calendar);
-
-        int firstDayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
-        int daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-        StringBuilder builder = new StringBuilder("L  M  X  J  V  S  D\n");
-
-        int leadingSpaces = firstDayOfWeek == Calendar.SUNDAY ? 6 : firstDayOfWeek - Calendar.MONDAY;
-        for (int i = 0; i < leadingSpaces; i++) {
-            builder.append("   ");
-        }
-
-        for (int day = 1; day <= daysInMonth; day++) {
-            if (day < 10) {
-                builder.append(" ");
-            }
-            builder.append(day).append(" ");
-
-            int position = leadingSpaces + day;
-            if (position % 7 == 0) {
-                builder.append("\n");
-            }
-        }
-
-        return builder.toString().trim();
+    public static String monthTitleFor(int year, int zeroBasedMonth) {
+        String month = new DateFormatSymbols(SPANISH_LOCALE).getMonths()[zeroBasedMonth];
+        return capitalize(month) + " " + year;
     }
 
     private static Calendar epochDayToCalendar(long epochDay) {

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    android:fillViewport="true"
+    tools:context=".CreateClientActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nuevo cliente"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+            android:textColor="@color/app_text_primary"
+            android:textStyle="bold" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/app_card"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="1dp"
+            app:strokeColor="#E5E7EB"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <EditText
+                    android:id="@+id/firstNameInput"
+                    style="@style/Widget.AppPrestamos.Input"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:hint="Nombre"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/lastNameInput"
+                    style="@style/Widget.AppPrestamos.Input"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="Apellido"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/phoneInput"
+                    style="@style/Widget.AppPrestamos.Input"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="Telefono"
+                    android:inputType="phone" />
+
+                <EditText
+                    android:id="@+id/addressInput"
+                    style="@style/Widget.AppPrestamos.Input"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="Direccion"
+                    android:inputType="textPostalAddress" />
+
+                <EditText
+                    android:id="@+id/clientNotesInput"
+                    style="@style/Widget.AppPrestamos.Input"
+                    android:layout_width="match_parent"
+                    android:layout_height="96dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="top"
+                    android:hint="Notas"
+                    android:inputType="textMultiLine" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/saveClientButton"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="18dp"
+            android:text="Guardar cliente"
+            app:cornerRadius="16dp" />
+
+    </LinearLayout>
+</ScrollView>
